@@ -2,5 +2,8 @@
 def max_integer(my_list=[]):
     if my_list == 0:
         return None
-    new = my_list.sort()
-    return my_list[-1]
+    l = my_list[0]
+    for i in my_list:
+        if i > l:
+            l = i
+    return l
