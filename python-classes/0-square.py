@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Definiendo modulo"""
+
+
 class Square:
-    """Definiendo una clases en vacio"""
+    """Definiendo clases"""
     pass
