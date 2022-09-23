@@ -4,17 +4,15 @@
 
 class Square:
     """Class square
-    art:
-        __size, value Integer
 
-    Return:
-        None
+    Attributes:
+        _size : size of the square
     """
     def __init__(self, size=0):
-        if type(size) is not int:
+        if type(size) != int:
             raise TypeError("size must be an integer")
         else:
             if size < 0:
                 raise ValueError("size must be >= 0")
             else:
-                self._size = size
+                self.__size = size
