@@ -2,7 +2,7 @@
 """Define a class square"""
 
 
-class Square
+class Square:
     """Represent class square
 
     Attributes:
