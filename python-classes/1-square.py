@@ -13,4 +13,4 @@ class Square:
             size: size of the square
 
         Returns: none"""
-        self.__sizesize = size
+        self.__size = size
