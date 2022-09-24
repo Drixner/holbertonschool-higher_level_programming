@@ -1,110 +1,79 @@
-The``0-add_integer`` module
-======================
+# dctest_0-add_integer.txt
+===============================
+Tests to 0-add_integer.py
+===============================
 
-Using ``add_integer``
--------------------
+This library is for sum two numbers (only int and float) and the function is called
+``add_integer(a, b=98)``.
 
-Importing the function from the module:
-	>>> add_integer = __import__("0-add_integer").add_integer
+File ``0-add_integer.py``
 
-Checking for module docstring:
-	 >>> m = __import__("0-add_integer").__doc__
-	 >>> len(m) > 1
-	 True
+Return an integer: The sum of a and b numbers
 
-Checking for function docstring:
-	 >>> f = __import__("0-add_integer").add_integer.__doc__
-         >>> len(f) > 1
-         True
+Importing the function:
 
-Checking regular addition:
-	 >>> add_integer(2, 3)
-	 5
+	  >>> add_integer = __import__('0-add_integer').add_integer
 
-Checking positive with negative:
-	 >>> add_integer(2, -4)
-	 -2
+Test to realize:
 
-Checking negative with positive:
-	 >>> add_integer(-6, 8)
-	 2
+     >>> add_integer(4, 8)
+     12
 
-Checking addition over multiple values:
-	 >>> [add_integer(i, i ** 2) for i in range(6)]
-	 [0, 2, 6, 12, 20, 30]
+     >>> add_integer(4, -8)
+     -4
 
-Checking float with int:
-	 >>> add_integer(2.1, 4)
-	 6
+     >>> add_integer(-4, 8)
+     4
 
-Checking int with float:
-	 >>> add_integer(5, 7.8)
-	 12
+     >>> add_integer(-3.5, 1)
+     -2
 
-Checking both float:
-	 >>> add_integer(2.45, 3.1)
-	 5
+     >>> add_integer(-4, 8)
+     4
 
-Checking for passed NaN:
-	 >>> add_integer(1, float('nan'))
-	 Traceback (most recent call last):
-	 ...
-	 ValueError: cannot convert float NaN to integer
+     >>> add_integer(-4, -8)
+     -12
 
-Checking for passed inf:
-	 >>> add_integer(1, float('inf'))
-	 Traceback (most recent call last):
-	 ...
-	 OverflowError: cannot convert float infinity to integer
+     >>> add_integer(4)
+     102
 
-Checking super long int:
-	 >>> add_integer(999999999999999999999999999999, 1)
-	 1000000000000000000000000000000
+     >>> add_integer(-8)
+     90
 
-Checking non-number with number:
-	 >>> add_integer([1], 2)
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: a must be an integer
+     >>> add_integer()
+     Traceback (most recent call last):
+     	       ...
+     TypeError: add_integer() missing 1 required positional argument: 'a'
 
-Checking number with non-number:
-	 >>> add_integer(3, "2")
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: b must be an integer
+     >>> add_integer([5, 8, 9], 5)
+     Traceback (most recent call last):
+     	       ...
+     TypeError: a must be an integer
 
-Checking non-number with non-number:
-	 >>> add_integer((2,), {"key": "value"})
-         Traceback (most recent call last):
-         ...
-         TypeError: a must be an integer
+     >>> add_integer(5, [5, 8, 9])
+     Traceback (most recent call last):
+     	       ...
+     TypeError: b must be an integer
 
-Checking bool with number:
-	 >>> add_integer(True, 1)
-	 Traceback (most recent call last):
-         ...
-         TypeError: a must be an integer
+     >>> add_integer([5, 8, 9], -5)
+     Traceback (most recent call last):
+     	       ...
+     TypeError: a must be an integer
 
-Checking number with bool:
-	 >>> add_integer(0, False)
-         Traceback (most recent call last):
-         ...
-         TypeError: b must be an integer
+     >>> add_integer(-5, [5, 8, 9])
+     Traceback (most recent call last):
+     	       ...
+     TypeError: b must be an integer
 
-Checking no args:
-	 >>> add_integer()
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: add_integer() missing 2 required positional arguments: 'a' and 'b'
+     >>> add_integer(5.6, 1.4)
+     6
 
-Checking one arg:
-	 >>> add_integer(1)
-	 Traceback (most recent call last):
-         ...
-	 TypeError: add_integer() missing 1 required positional argument: 'b'
+     >>> add_integer(319e520)
+     Traceback (most recent call last):
+     	       ...
+     OverflowError: cannot convert float infinity to integer
 
-Checking more than 2 args:
-	 >>> add_integer(1, 2, 3)
-         Traceback (most recent call last):
-         ...
-         TypeError: add_integer() takes 2 positional arguments but 3 were given 
+     >>> add_integer(float('nan'))
+     Traceback (most recent call last):
+     	       ...
+     ValueError: cannot convert float NaN to integero

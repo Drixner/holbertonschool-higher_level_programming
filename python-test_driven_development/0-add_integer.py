@@ -5,7 +5,7 @@ The add_integer(a, b).
 """
 
 
-def add_integer(a, b):
+def add_integer(a, b=98):
     """Return the addition of two numbers."""
     if type(a) is not int and type(a) is not float:
         raise TypeError("a must be an integer")
