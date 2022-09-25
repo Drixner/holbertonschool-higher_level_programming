@@ -1,4 +1,4 @@
-The ``3-say_my_name`` module
+ ``3-say_my_name`` module
 ======================
 
 Using ``say_my_name``
