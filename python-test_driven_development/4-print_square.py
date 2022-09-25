@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """
 This is the "4-print_square" module.
 
@@ -13,4 +13,4 @@ def print_square(size):
     if size < 0:
         raise ValueError("size must be >= 0")
     if size > 0:
-        print(("#" * size + "\n") * size, end="")/
+        print(("#" * size + "\n") * size, end="")
