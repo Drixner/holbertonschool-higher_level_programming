@@ -5,6 +5,7 @@ That prevents the user from dinamically creating
 new instance attribute is called first_name
 """
 
+
 class LockedClass():
     """bloqueando la clases para que no registre
     atributos dinamicamente usando slots"""
