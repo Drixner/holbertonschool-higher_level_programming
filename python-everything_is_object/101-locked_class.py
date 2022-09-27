@@ -8,7 +8,8 @@ new instance attribute is called first_name
 
 
 Class lockedClass():
-    """Lock class
+    """
+    Lock class
     """
 
     __slots__ = ["first_name"]
