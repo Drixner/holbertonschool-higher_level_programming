@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""The Mylist class definess"""
+"""The Mylist class defines"""
 
 
-class Mylist(list):
-    """Class Mylist
-    inheritance from list"""
+class MyList(list):
+    """Class Mylistinheritance from list"""
     def print_sorted(self):
         """print list ordered"""
         print(sorted(self))
