@@ -54,4 +54,4 @@ Negative numbers:
         >>> my_list.print_sorted()
 	[-200, -8, -4, -1, 4]
         >>> print(my_list)
-        [-4, -8, -200, 4, -1]=
+        [-4, -8, -200, 4, -1]
