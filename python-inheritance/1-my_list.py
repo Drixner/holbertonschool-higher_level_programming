@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-The Mylist class defines
-"""
+"""The Mylist class defines"""
 
 
 class Mylist(list):
