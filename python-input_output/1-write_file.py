@@ -1,13 +1,10 @@
 #!/usr/bin/python3
 """
-Containss the number_of_lines function
+Contains the function "wrtie_file"
 """
 
 
-def number_of_lines(filename=""):
-    """returns the number of lines of a text file"""
-    with open(filename, 'r', encoding='utf8') as f:
-        i = 0
-        for line in f:
-            i += 1
-        return i
+def write_file(filename="", text=""):
+    """returns the number of chars written to "filename" from "text" """
+    with open(filename, 'w', encoding='utf=8') as f:
+        return f.write(text)
