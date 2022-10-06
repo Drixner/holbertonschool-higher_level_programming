@@ -9,4 +9,8 @@ class Base:
 
     def __init__(self, id=None):
         """init the class base"""
-
+        if id != None:
+            self.id = id
+        else:
+            Base.__nb_objects += 1
+            self.id = self.__nb_objects
