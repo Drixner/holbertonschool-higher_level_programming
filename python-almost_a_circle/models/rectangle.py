@@ -86,6 +86,6 @@ class Rectangle(Base):
         """string of the rectangle"""
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(self.id, 
                                                             self.__x, 
-                                                            self.__x, 
+                                                            self.__y, 
                                                             self.__width, 
                                                             self.__height)
