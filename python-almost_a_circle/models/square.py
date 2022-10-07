@@ -3,7 +3,6 @@
 this module is the class squere
 """
 
-
 from models.rectangle import Rectangle
 
 
