@@ -23,7 +23,7 @@ if __name__ == '__main__':
                     FROM cities
                     JOIN states
                     ON cities.state_id = states.id
-                    WHERE states.name LIKE BINARY %(state_name)S
+                    WHERE states.name LIKE BINARY %(state_name)s
                     ORDER BY cities.id ASC""",
                     {'states_name': argv[4]})
         rows = cur.fetchall()
