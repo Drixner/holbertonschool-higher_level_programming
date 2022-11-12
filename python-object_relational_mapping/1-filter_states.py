@@ -20,5 +20,5 @@ if __name__ == '__main__':
                 ORDER BY states.id ASC")
     rows = cur.fetchall()
 
-    for row in rown:
+    for row in rows:
         print(row)
