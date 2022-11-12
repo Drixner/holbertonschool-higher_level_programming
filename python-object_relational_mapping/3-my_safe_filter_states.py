@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-This script takes arguments and returns 
-all values from the state table of 
-hbtn_0e_0_usa where the name matches 
+This script takes arguments and returns
+all values from the state table of
+hbtn_0e_0_usa where the name matches
 the argument. But this time, write one
 that is safe from MySQL injections.
 """
@@ -24,7 +24,7 @@ if __name__ == '__main__':
         SELECT * FROM states
         WHERE name LIKE BINARY %(name)s
         ORDER BY states.id ASC""",
-                    {'name':argv[4]})
+                    {'name': argv[4]})
 
         rows = cur.fetchall()
     if rows is not None:
