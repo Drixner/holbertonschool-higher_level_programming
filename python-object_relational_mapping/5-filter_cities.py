@@ -20,21 +20,22 @@ if __name__ == '__main__':
                            db=argv[3],
                            charset="utf8")
 
-    #Start cursor
+    # Start cursor
     cur = conn.cursor()
 
-    #Query
-    cur.execute("Select cities.name FROM cities\
-            JOIN states ON cities.state_id = state_id\
-                WHERE state.name=%s", (argv[4], ))
+    # Query
+    cur.execute("SELECT cities.name FROM cities\
+            JOIN states ON cities.state_id = states_id\
+                WHERE states.name=%s", (argv[4], ))
 
     query_rows = cur.fetchall()
     out = []
     for row in query_rows:
         out.append(row[0])
 
-    #Print Query
+    # Print Query
     print(', '.join(out))
 
-    #Close cursor
+    # Close cursor
     cur.close()
+    conn.close()
