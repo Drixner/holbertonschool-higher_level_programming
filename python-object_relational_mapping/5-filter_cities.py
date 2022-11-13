@@ -1,41 +1,37 @@
 #!/usr/bin/python3
 """
-This script  takes in the name of a state
-as an argument and lists all cities of that
-state, using the database `hbtn_0e_4_usa`.
+lists all cities from the database
 """
+if __name__ == "__main__":
 
-import MySQLdb
-from sys import argv
+    import MySQLdb
+    from sys import argv
 
-if __name__ == '__main__':
-    """
-    Access to the database and get the cities
-    from the database.
-    """
-    conn = MySQLdb.connect(host="localhost",
-                           port=3306,
-                           user=argv[1],
-                           passwd=argv[2],
-                           db=argv[3],
-                           charset="utf8")
-
-    # Start cursor
-    cur = conn.cursor()
+    cont = 0
+    conect = MySQLdb.connect(host="localhost",
+                             port=3306,
+                             user=argv[1],
+                             passwd=argv[2],
+                             db=argv[3],
+                             charset="utf8")
+    # Conect
+    cursor = conect.cursor()
 
     # Query
-    cur.execute("SELECT cities.name FROM cities\
-            JOIN states ON cities.state_id = states_id\
-                WHERE states.name=%s", (argv[4], ))
+    cursor.execute("""
+    SELECT cities.id, cities.name, states.name
+    FROM cities
+    LEFT JOIN states ON cities.state_id = states.id
+    ORDER BY cities.id ASC""")
 
-    query_rows = cur.fetchall()
-    out = []
+    query_rows = cursor.fetchall()
     for row in query_rows:
-        out.append(row[0])
-
-    # Print Query
-    print(', '.join(out))
-
-    # Close cursor
-    cur.close()
-    conn.close()
+        if row[2] == argv[4]:
+            if cont > 0:
+                print(", ", end="")
+            print(row[1], end="")
+            cont = cont + 1
+    # Close
+    print()
+    cursor.close()
+    conect.close()
