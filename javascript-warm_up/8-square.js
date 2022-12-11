@@ -1,4 +1,4 @@
-#!/usr/bin/nope
+#!/usr/bin/node
 // Script that prints a square
 // More info > https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/repeat
 
