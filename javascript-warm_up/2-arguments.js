@@ -7,7 +7,7 @@ const args = process.argv; // se iguala a una varible const 'argas'
 
 if (args.length <= 2) { // Se considera 2 ya pertenece parametro extra.
   console.log('No argument');
-} else if (args.length === 1) {
+} else if (args.length === 3) {
   console.log('Argument found');
 } else {
   console.log('Arguments found');
