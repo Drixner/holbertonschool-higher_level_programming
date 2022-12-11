@@ -10,5 +10,5 @@ if (args.length <= 2) { // Se considera 2 ya pertenece parametro extra.
 } else if (args.length === 1) {
   console.log('Argument found');
 } else {
-  console.log('Argument found');
+  console.log('Arguments found');
 }
