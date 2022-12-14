@@ -20,7 +20,7 @@ request.get(url, (error, response, body) => {
       if (err) {
         console.error(err);
       } else {
-        console.log(`${filePath}`);
+        // console.log(`${filePath}`);
       }
     });
   }
