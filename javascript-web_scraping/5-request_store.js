@@ -20,7 +20,7 @@ request.get(url, (error, response, body) => {
       if (err) {
         console.error(err);
       } else {
-        console.log(`Se guardó la respuesta del cuerpo en ${filePath}`);
+        console.log(`${filePath}`);
       }
     });
   }
