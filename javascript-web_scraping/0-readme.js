@@ -6,17 +6,20 @@ Write a script that reads and prints the content of a file.
     The content of the file must be read in utf-8
     If an error occurred during the reading, print the error object
 */
-// process.argv
-const process = require('process'); // add module
-const args = process.argv;
-const filePath = args[2];
 
-const fs = require('fs'); // load fs class
+const fs = require('fs'); // Import the fs module
 
-fs.readFile(filePath, 'utf8', function (err, content) {
-  if (err) {
-    return console.log(err);
+// Get file path from command line argument
+const filePath = process.argv[2];
+
+// Read the file at the given path in utf-8
+fs.readFile(filePath, 'utf8', (error, data) => {
+  // Check if there was an error
+  if (error) {
+    // Print the error object
+    console.error(error);
+  } else {
+    // Print the file contents
+    console.log(data);
   }
-  // imprimo el contenido que leimos del archivo.
-  console.log(content);
 });
