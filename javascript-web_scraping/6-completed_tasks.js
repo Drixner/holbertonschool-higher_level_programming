@@ -1,40 +1,29 @@
 #!/usr/bin/node
+
 const process = require('process');
 const request = require('request');
+const url = process.argv[2]; // obtenemos la URL de la API desde el primer argumento del script
 
-// Obtiene la URL de la API desde el primer argumento del script
-const apiUrl = process.argv[2];
+request(url, (error, response, body) => {
+  if (!error && response.statusCode === 200) {
+    const data = JSON.parse(body);
 
-// Realiza una solicitud GET a la API
-request.get(apiUrl, (error, response, body) => {
-  // Si hay un error al realizar la solicitud, se imprime en consola
-  if (error) {
-    console.error(error);
-    return;
-  }
+    // Creamos un objeto para almacenar la cantidad de tareas completadas por cada ID de usuario
+    const completedTasksByUser = {};
 
-  // Parsea la respuesta de la API en un objeto JSON
-  const tasks = JSON.parse(body);
-
-  // Objeto para almacenar las tareas completadas por cada ID de usuario
-  const completedTasks = {};
-
-  // Recorre cada tarea de la respuesta de la API
-  tasks.forEach((task) => {
-    // Si la tarea está marcada como completada
-    if (task.completed) {
-      // Si el usuario aún no tiene tareas completadas en el objeto, se inicializa en 0
-      if (!completedTasks[task.userId]) {
-        completedTasks[task.userId] = 0;
+    // Iteramos sobre cada tarea
+    data.forEach(task => {
+      // Si la tarea está completada, aumentamos el contador de tareas completadas para el ID de usuario correspondiente
+      if (task.completed) {
+        if (completedTasksByUser[task.userId]) {
+          completedTasksByUser[task.userId]++;
+        } else {
+          completedTasksByUser[task.userId] = 1;
+        }
       }
+    });
 
-      // Se aumenta en 1 la cantidad de tareas completadas para el usuario
-      completedTasks[task.userId]++;
-    }
-  });
-
-  // Se imprimen los usuarios con tareas completadas y su cantidad
-  for (const userId in completedTasks) {
-    console.log(`${userId}: ${completedTasks[userId]}`);
+    // Imprimimos el resultado en formato JSON
+    console.log(JSON.stringify(completedTasksByUser, null, 2));
   }
 });
