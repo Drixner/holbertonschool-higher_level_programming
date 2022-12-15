@@ -1,45 +1,92 @@
 #!/usr/bin/node
+const process = require('process');
+const request = require('request');
 
-/*
-Write a script that computes the number of tasks completed by user id:
-- The first argument is the API URL: https://jsonplaceholder.typicode.com/todos
-- Only print users with completed task
-- You must use the module axios
-Info axios: https://github.com/axios/axios
-Info API json placeholder: https://jsonplaceholder.typicode.com/todos
-*/
+// Obtenemos la URL de la que queremos obtener los datos
+const url = process.argv[2];
 
-// process.argv --> https://www.geeksforgeeks.org/node-js-process-argv-property/
-const process = require('process'); // agrego el modulo process para usar la funcion "argv".
-const args = process.argv; // defino args como process.argv
-const axios = require('axios').default; // import axios module
-
-const URL = args[2];
-
-// Usamos el modulo "axios" para hacer peticion GET del protocolo HTTP
-axios.get(URL)
-  .then(function (response) {
-    // handle success
-    // Guardo la info que este en la pagina:
-    const data = response.data;
-    const dicResponse = {};
-
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].completed === true) {
-        // Si el "userId" tiene la tarea marcada como true en completed y ya esta dentro del diccionario que creamos sumamos 1
-        if (dicResponse[data[i].userId] !== undefined) {
-          dicResponse[data[i].userId] = dicResponse[data[i].userId] += 1;
-          // En caso de que el "userId" tiene una tarea completa y no estaba en el diccionario se viene a este else y se le setea en uno, ya que es la primera vez que aparece
+// Realizamos una petición HTTP a la URL especificada
+request(url, function (error, response, body) {
+  // Si se produjo un error, lo mostramos en la consola y salimos de la función
+  if (error) {
+    console.error(error);
+    return;
+  }
+  // Si la petición se realizó correctamente (código de estado 200), procesamos los datos
+  if (response.statusCode === 200) {
+    // Convertimos el cuerpo de la respuesta en un objeto JSON
+    const data = JSON.parse(body);
+    // Inicializamos un objeto que almacenará la cantidad de tareas completadas por cada usuario
+    const userTasks = {};
+    // Iteramos sobre cada tarea del objeto JSON
+    data.forEach(function (task) {
+      // Si la tarea está completada, procesamos su información
+      if (task.completed) {
+        // Obtenemos el ID del usuario al que pertenece la tarea
+        const userId = task.userId;
+        // Si ya tenemos un registro para el usuario, incrementamos su cantidad de tareas completadas en 1
+        if (userTasks[userId]) {
+          userTasks[userId] += 1;
         } else {
-          dicResponse[data[i].userId] = 1;
+          // Si no tenemos un registro para el usuario, lo agregamos y le asignamos una tarea completada
+          userTasks[userId] = 1;
         }
       }
-    }
-    // Se retorna el diccionario con "userId" como "key" y la cantidad de tareas completadas como "value".
-    console.log(dicResponse);
-  })
-  // No es necesario dejar el catch para el checker pero lo dejo como buena practica
-  .catch(function (error) {
-    // handle error - para acceder al status del error, es atraves de la respuesta(response)
-    console.log(`code: ${error.response.status}`);
-  });
+    });
+    console.log(userTasks);
+  }
+});
+
+/*
+*** Diagrama de flujo ***
++---------------------------+
+| Inicializamos variables   |
+| url, dict                 |
++---------------------------+
+|                           |
+| Realizamos petición HTTP  |
++---------------------------->
+|                           |
+| Si hay error, salimos     |
+| de la función             |
++----------------------------+
+|                           |
+| Si no hay error,          |
+| obtenemos los descriptores|
+| de propiedad de 'dict'    |
++---------------------------->
+|                           |
+| Iteramos sobre cada       |
+| elemento del cuerpo de la |
+| respuesta                 |
++---------------------------->
+|                           |
+| Desestructuramos el       |
+| elemento                  |
++---------------------------->
+|                           |
+| Si el elemento está       |
+| completo, procesamos su   |
+| información               |
++---------------------------->
+|                           |
+| Convertimos el ID del     |
+| usuario en cadena de texto|
++---------------------------->
+|                           |
+| Si la propiedad existe en |
+| el objeto 'dict',         |
+| incrementamos su valor en |
+| 1                         |
++---------------------------->
+|                           |
+| Si la propiedad no existe |
+| en el objeto 'dict', la   |
+| agregamos y le asignamos  |
+| el valor 1                |
++---------------------------->
+|                           |
+| Imprimimos el objeto      |
+| 'dict' en la consola      |
++----------------------------+
+*/
