@@ -8,11 +8,11 @@
 
 const $ = window.$;
 
-$.getJSON('https://swapi-api.hbtn.io/api/films/?format=json', function(data) {
+$.getJSON('https://swapi-api.hbtn.io/api/films/?format=json', function (data) {
   // obtener la lista de películas
   const movies = data.results;
   // iterar sobre cada película
-  movies.forEach(function(movie) {
+  movies.forEach(function (movie) {
     // obtener el título de la película
     const title = movie.title;
     // crear un elemento LI para el título
