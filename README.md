@@ -44,12 +44,12 @@ Python's numerous advantages include:
 |  [python-everything_is_object]()| It was created to know what is an **object**, **mutables and inmutable object**, **what is a reference**, **alias and assigment** and what are the **built-in mutables and inmutables types**|  [README.md]()|
 |  [python-inheritance]()|Here you are going to learn about subclass, how to define a **class with multiple base classes** and **override a method or atrributes inherited** from the base class, and use **insinstance, issublclass, type, and super**|  [README.md]()|
 |  [python-input_output]()|Here you are going to see **how to open, write text and read from a file**, how to move the **cursor in a file**, and **what is JSON**, what is **serialization and deserializacion**|  [README.md]()|
-|  [python-almost_a_circle]()|Here you are going to see **how serialize and deserialize a Class**, **writting and reading a JSON file**, using **\*args and \*\*kwargs**|  [README.md]()|
-|  [SQL_introduction]()|Here you are going to see **how serialize and deserialize a Class**, **writting and reading a JSON file**, using **\*args and \*\*kwargs**|  [README.md]()|
-|  [SQL_more_queries]()|Here you are going to see **how serialize and deserialize a Class**, **writting and reading a JSON file**, using **\*args and \*\*kwargs**|  [README.md]()|
+|  [python-almost_a_circle]()|What is Unit testing and how to implement it in a large project, how to serialize and deserialize a Class, What are `*args`, `**kwargs` and how to use them, how to handle named arguments in a function, and more.|  [README.md]()|
+|  [SQL_introduction]()|What’s a database, what’s a relational database, what’s in how to create a database in MySQL, what does `DDL` and `DML` stand for, what are subqueries and more.|  [README.md]()|
+|  [SQL_more_queries]()|How to create a new MySQL user, What’s a `PRIMARY KEY`, What’s a `FOREIGN KEY`, How to use `NOT NULL` and `UNIQUE` constraints, What are `JOIN` and `UNION`, and more|  [README.md]()|
 |  [python-object_relational_mapping]()|Here you are going to see **how serialize and deserialize a Class**, **writting and reading a JSON file**, using **\*args and \*\*kwargs**|  [README.md]()|
-|  [javascript-warm_up]()|Here you are going to see **how serialize and deserialize a Class**, **writting and reading a JSON file**, using **\*args and \*\*kwargs**|  [README.md]()|
-|  [javascript_objects_scopes_closures]()|Here you are going to see **how serialize and deserialize a Class**, **writting and reading a JSON file**, using **\*args and \*\*kwargs**|  [README.md]()|
+|  [javascript-warm_up]()|How to run a JavaScript script, what are differences between `var`, `const` and `let`, What are all the data types available in JavaScript, how to use the `if`, `if ... else` statements, scope of variables, how to import a file, and more|  [README.md]()|
+|  [javascript_objects_scopes_closures]()|How to create an object in JavaScript, what `this` means, What `undefined` means, why the variable type and scope is important, what is a prototype, how to inherit an object from another, and more|  [README.md]()|
 
 ## Installation  and Prerequisites
 
