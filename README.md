@@ -1,10 +1,29 @@
 # Higher Level Programming - Python
 
-## Introduction 
+![Repo imagea](https://portswigger.net/cms/images/66/61/1cc4-article-220525-pypi-main.jpg)
 
+## Introduction 
+Python is a highly efficient programming language that allows you to write robust programs with fewer lines of code compared to other languages. Its syntax also promotes writing "clean" code that is easily readable, debuggable, and extendable.
+
+Python is a popular choice for diverse applications such as game development, web applications, business solutions, and scientific research.
+
+One of the key strengths of Python is its community. As programming is not a solitary endeavor, community support is essential. Python has a large and dynamic community that provides resources, support, and inspiration to programmers.
+
+Python's numerous advantages include:
+
+  *Being interpreted, so programs don't need to be compiled before execution.
+  *Being interactive, allowing direct interaction with the interpreter to write programs.
+  *Being portable, running on a broad range of hardware platforms.
+  *Supporting both Object-Oriented and Procedural programming paradigms.
+  *Being able to serve as a scripting language or compile to byte-code for building larger applications.
+  *Having a simple structure and clear syntax.
+  *Having source code that is relatively easy to maintain.
+  *Having a vast collection of standard libraries that simplify the completion of a wide range of tasks.
 <br/>
 
 ## Description About the Directories 
+
+
 
 | DIRECTORY | DESCRIPCION | README |
 | :--- | :--- | :--- |
