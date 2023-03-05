@@ -1,5 +1,10 @@
 # Higher Level Programming - Python
 
+![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/Drixner/holbertonschool-higher_level_programming)
+[![Py|Py](https://img.shields.io/badge/repo-299%20commits-orange.svg)](https://sourcerer.io/Drixner)
+
+
 ![Repo imagea](https://portswigger.net/cms/images/66/61/1cc4-article-220525-pypi-main.jpg)
 
 ## Introduction 
